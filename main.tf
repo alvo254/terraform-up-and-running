@@ -1,4 +1,15 @@
 //Provider to use aws,azure,gcp,heroku etc can be multiple as terraform is cloud agnostic
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "alvo"
+
+    workspace{
+      name = "learning"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
@@ -23,12 +34,7 @@ resource "aws_instance" "my_server" {
   }
 }
 
-//Has to have the resource name 
-//This allows us to see the values
-//Use terraform refresh to view the output or terraform output
-output "instance_ip_addr" {
-  value = aws_instance.my_server.public_ip
-}
+
 
 //Models form terraform registry
 //Terrafrom init to install the module
@@ -52,4 +58,5 @@ module "vpc" {
     Terraform = "true"
     Environment = "dev"
   }
+
 }
