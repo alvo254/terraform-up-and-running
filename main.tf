@@ -10,6 +10,10 @@ variable "instance_type"{
 
 //Resource to be created
 resource "aws_instance" "my_server" {
-  ami = "ami"
+  ami = "ami-0f69dd1d0d03ad669"
   instance_type = var.instance_type
+
+  tags = {
+    Name = "My server"
+  }
 }
