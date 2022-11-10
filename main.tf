@@ -1,17 +1,26 @@
 //Provider to use aws,azure,gcp,heroku etc can be multiple as terraform is cloud agnostic
-terraform {
-  backend "remote" {
-    hostname = "app.terraform.io"
+terraform { 
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      # version = "3.58.0"
+    }
+  }
+  cloud {
     organization = "alvo"
 
-    workspace{
-      name = "learning"
+    workspaces {
+      name = "learner"
     }
   }
 }
 
+
+
 provider "aws" {
   region = "us-east-1"
+  # profile = "default"
+
 }
 
 variable "instance_type"{

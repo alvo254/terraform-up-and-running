@@ -22,7 +22,18 @@ Active destroy mode
 Used to work with other in workspaces
  - terraform workspace 
  - terraform login 
- 
+
+## Incase of this error
+ `
+ │ Error: error configuring Terraform AWS Provider: failed to get shared config profile, default
+│
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on main.tf line 20, in provider "aws":
+│   20: provider "aws" {
+ `
+ Please remove the profile section from your code
+ - Add the env variable to terraform cloud
+
 
 
 
