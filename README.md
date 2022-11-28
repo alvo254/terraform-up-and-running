@@ -35,6 +35,9 @@ Used to work with other in workspaces
  Please remove the profile section from your code
  - Add the env variable to terraform cloud
 
+## The userdata.yml
+ - This file is a cloud-init
+ 
 
 
 
