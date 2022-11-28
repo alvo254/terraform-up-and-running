@@ -37,7 +37,12 @@ Used to work with other in workspaces
 
 ## The userdata.yml
  - This file is a cloud-init
- 
 
+### Fix port 443 error
+ - https://appuals.com/how-to-fix-an-existing-connection-was-forcibly-closed-by-the-remote-host-error/
+
+
+## Check terraform output
+- terraform output
 
 

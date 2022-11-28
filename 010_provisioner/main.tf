@@ -39,7 +39,7 @@ resource "aws_key_pair" "deployer" {
 }
 
 output "public_ip" {
-  value = aws_instance.my_server
+  value = aws_instance.my_server.public_ip
 }
 
 //data sources allow us to refernce external resources
