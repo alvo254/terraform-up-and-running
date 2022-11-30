@@ -45,4 +45,6 @@ Used to work with other in workspaces
 ## Check terraform output
 - terraform output
 
+# Change state from backend to terraform cloud remote to local
+ - terraform init -migrate-state
 

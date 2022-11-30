@@ -25,6 +25,7 @@ resource "aws_instance" "my_server" {
   key_name = "${aws_key_pair.deployer.key_name}"
   vpc_security_group_ids = [aws_security_group.sg_my_server.id]
   user_data = data.template_file.user_data.rendered
+
   //local exec - allows you to execute local commands after a resource is provisioned
   provisioner "local-exec" {
     command = "echo ${self.private_ip} >> private_ips.txt"
@@ -35,6 +36,14 @@ resource "aws_instance" "my_server" {
     inline = [
       "echos ${self.private_ip} >> home/ec2-user/private_ip.txt"
     ]
+  }
+  //Connection block tells provisioner how to establish connection
+  connection {
+    type = "ssh"
+    user = "ec2-user"
+    # password = "${var.root_password}"
+    host = "${var.public_ip}"
+    private_key = "${file("/home/.ssh/id_rsa")}"
   }
 
   tags = {
