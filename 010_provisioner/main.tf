@@ -30,6 +30,13 @@ resource "aws_instance" "my_server" {
     command = "echo ${self.private_ip} >> private_ips.txt"
   }
 
+  //Same as local exec but for remote execution on terraform cloud
+  provisioner "remote-exec" {
+    inline = [
+      "echos ${self.private_ip} >> home/ec2-user/private_ip.txt"
+    ]
+  }
+
   tags = {
     //String interpolation in terraform 
     Name = "Myserver"
