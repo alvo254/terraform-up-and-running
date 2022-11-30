@@ -19,6 +19,14 @@ provider "aws" {
   # profile = "default"
 }
 
+variable "instance_type"{
+    type = string
+}
+
+locals {
+  project_name = "Alvin-learning"
+}
+
 
 //Resource to be created
 resource "aws_instance" "my_server" {
@@ -29,6 +37,15 @@ resource "aws_instance" "my_server" {
     //String interpolation in terraform 
     Name = "Myserver-${local.project_name}"
   }
+}
+
+resource "null_resource" "status" {
+  provisioner "local-exec" {
+    command = "awd ec2 wait instance-status-pok --instance-ids ${}"
+  }
+  depends_on = [
+    aws_instance.my_server
+  ]
 }
 
 
