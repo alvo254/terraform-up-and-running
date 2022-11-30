@@ -25,6 +25,10 @@ resource "aws_instance" "my_server" {
   key_name = "${aws_key_pair.deployer.key_name}"
   vpc_security_group_ids = [aws_security_group.sg_my_server.id]
   user_data = data.template_file.user_data.rendered
+  //local exec - allows you to execute local commands after a resource is provisioned
+  provisioner "local-exec" {
+    command = "echo ${self.private_ip} >> private_ips.txt"
+  }
 
   tags = {
     //String interpolation in terraform 
