@@ -1,1 +1,4 @@
 .env
+020_null_resources/.terraform
+020-null_resources/.terraform
+myTest
