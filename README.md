@@ -48,3 +48,15 @@ Used to work with other in workspaces
 # Change state from backend to terraform cloud remote to local
  - terraform init -migrate-state
 
+## Working a load balancer
+- This will be used to distribute traffic across your servers and and give your user an IP address
+- AWS can do this automatically with Amazon elastic load balancer (ELB)
+
+## Types of load balancers
+ - Application load balancers(ALB)
+    - Best for HTTP and HTTPS operates at the application layer of the OSI
+ - Network load balancer(NLB)
+    - Best for TCP, UDP, and TLS scale up and down in respond to load than ALB 
+ - Classic load balancer(CLB)
+    - This is the `legacy` load balancer that predates both the ALB and NLB.
+    - It can handle both https, http, tcp and tls traffic but with far fewer features than either ALB or NLB
