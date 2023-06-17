@@ -60,5 +60,5 @@ Used to work with other in workspaces
     - This is the `legacy` load balancer that predates both the ALB and NLB.
     - It can handle both https, http, tcp and tls traffic but with far fewer features than either ALB or NLB
 
-
+resource "aws_s3_bucket_versioning" "enabled" { bucket = aws_s3_bucket.terraform_state.id versioning_configuration { status = "Enabled" } }
 
