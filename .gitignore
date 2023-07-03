@@ -2,4 +2,6 @@
 020_null_resources/.terraform
 020-null_resources/.terraform
 myTest
+
+resource_meta_args/.terraform
 test
