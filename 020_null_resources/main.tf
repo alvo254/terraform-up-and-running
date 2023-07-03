@@ -34,8 +34,6 @@ resource "aws_instance" "my_server" {
   }
 }
 
-
-
 resource "null_resource" "status" {
   provisioner "local-exec" {
     command = "awd ec2 wait instance-status-ok --instance-ids ${aws_instance.my_server.id}"
