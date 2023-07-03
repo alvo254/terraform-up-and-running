@@ -66,4 +66,15 @@ resource "aws_s3_bucket_versioning" "enabled" { bucket = aws_s3_bucket.terraform
 resource "aws_dynamodb_table" "terraform_locks" { name         = "terraform-up-and-running-locks" billing_mode = "PAY_PER_REQUEST" hash_key     = "LockID" attribute { name = "LockID" type = "S" } 
 
 
+# Resource meta arguments
+Terraform language defines several meta-arguments, which can be used with any resouces type to change the behavior of resources.
+
+ - depends_on, for specifying explicit dependencies
+ - count, for creating multiple resource instance according to a count
+ - for_each, to create multiple instances according to a map, or set of strings
+ - provider, for selecting a non-default provider configuration
+ - lifecycle, for lifecycle customizations
+ - provisioner, and connection for taking extra actions after resource creation
+
+
 
